@@ -1,0 +1,5 @@
+c:\Users\Benjamin\Documents\Visual Studio 2015\Projects\Aug18Exercise\Aug18Exercise\bin\Aug18Exercise.dll.config
+c:\Users\Benjamin\Documents\Visual Studio 2015\Projects\Aug18Exercise\Aug18Exercise\bin\Aug18Exercise.dll
+c:\Users\Benjamin\Documents\Visual Studio 2015\Projects\Aug18Exercise\Aug18Exercise\bin\Aug18Exercise.pdb
+c:\Users\Benjamin\Documents\Visual Studio 2015\Projects\Aug18Exercise\Aug18Exercise\obj\Debug\Aug18Exercise.dll
+c:\Users\Benjamin\Documents\Visual Studio 2015\Projects\Aug18Exercise\Aug18Exercise\obj\Debug\Aug18Exercise.pdb
