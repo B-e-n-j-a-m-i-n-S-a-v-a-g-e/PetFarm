@@ -11,6 +11,15 @@ var GuineaPigGroup = (function () {
     GuineaPigGroup.prototype.addGP = function (gp) {
         this.guineaPigs.push(gp);
     };
+    GuineaPigGroup.prototype.addMultipleGP = function (first) {
+        var last = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            last[_i - 1] = arguments[_i];
+        }
+        for (var i = 0; i < arguments.length; i++) {
+            this.addGP(arguments[i]);
+        }
+    };
     GuineaPigGroup.prototype.getNumGuineaPigs = function () {
         return this.guineaPigs.length;
     };

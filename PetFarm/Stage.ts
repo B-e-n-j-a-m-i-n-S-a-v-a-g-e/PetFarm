@@ -23,6 +23,12 @@
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
+    render(gp: IGuineaPig, gpg?: GuineaPigGroup, pen?: GuineaPigPen) {
+        this.renderGuineaPig(gp);
+        this.renderGuineaPigGroup(gpg);
+        this.renderGuineaPigPen(pen);
+    }
+
     renderGuineaPig(gp: IGuineaPig) {
         console.log("GUINEA PIG BEING RENDERED");
         this.context.save();
@@ -49,6 +55,12 @@
         this.context.fillRect(gp.getX(), gp.getY(), gp.getWidth(), gp.getLength());
         this.context.fill();
         this.context.restore();
+    }
+
+    renderGuineaPigGroup(gpg: GuineaPigGroup) {
+        for (let i = 0; i < gpg.getNumGuineaPigs(); i++) {
+            this.renderGuineaPig(gpg[i]);
+        }
     }
 
     renderGuineaPigPen(gpp: GuineaPigPen) {

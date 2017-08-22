@@ -10,6 +10,11 @@ var Stage = (function () {
     Stage.prototype.clearStage = function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     };
+    Stage.prototype.render = function (gp, gpg, pen) {
+        this.renderGuineaPig(gp);
+        this.renderGuineaPigGroup(gpg);
+        this.renderGuineaPigPen(pen);
+    };
     Stage.prototype.renderGuineaPig = function (gp) {
         console.log("GUINEA PIG BEING RENDERED");
         this.context.save();
@@ -34,6 +39,11 @@ var Stage = (function () {
         this.context.fillRect(gp.getX(), gp.getY(), gp.getWidth(), gp.getLength());
         this.context.fill();
         this.context.restore();
+    };
+    Stage.prototype.renderGuineaPigGroup = function (gpg) {
+        for (var i = 0; i < gpg.getNumGuineaPigs(); i++) {
+            this.renderGuineaPig(gpg[i]);
+        }
     };
     Stage.prototype.renderGuineaPigPen = function (gpp) {
         this.context.strokeStyle = gpp.getColor();

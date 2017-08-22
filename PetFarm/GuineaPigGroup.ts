@@ -22,6 +22,13 @@
         this.guineaPigs.push(gp);
     }
 
+    addMultipleGP(first: GuineaPig, ...last: GuineaPig[]) {
+
+        for (let i = 0; i < arguments.length; i++) {
+            this.addGP(arguments[i]);
+        }
+    } 
+
     getNumGuineaPigs() {
 
         return this.guineaPigs.length;

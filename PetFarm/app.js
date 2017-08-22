@@ -20,18 +20,9 @@ window.onload = function () {
     var clock = new Clock();
     clock.createTickInterval();
     var pen = new GuineaPigPen(10, 10, 400, 400, 10, "#fff");
-    /*
-    let renderer = new Renderer(canvas, context, 500, 500);
-
-    renderer.renderGuineaPig(fuzzy);
-    renderer.renderGuineaPig(stinky);
-    renderer.renderGuineaPig(shirley);
-    renderer.renderGuineaPigPen(pen);
-    */
     var stage = new Stage(canvas, context, 500, 500);
-    stage.renderGuineaPig(fuzzy);
-    stage.renderGuineaPig(stinky);
-    stage.renderGuineaPig(shirley);
-    stage.renderGuineaPigPen(pen);
+    var gpGrp = new GuineaPigGroup();
+    gpGrp.addMultipleGP(fuzzy, stinky, shirley);
+    stage.render(fuzzy, gpGrp, pen);
 };
 //# sourceMappingURL=app.js.map
