@@ -20,6 +20,14 @@ var Color;
     Color[Color["grey"] = 4] = "grey";
 })(Color || (Color = {}));
 ;
+var Direction;
+(function (Direction) {
+    Direction[Direction["north"] = 0] = "north";
+    Direction[Direction["south"] = 1] = "south";
+    Direction[Direction["east"] = 2] = "east";
+    Direction[Direction["west"] = 3] = "west";
+})(Direction || (Direction = {}));
+;
 var GuineaPig = (function () {
     function GuineaPig(name, sex, color, hairLength, foodCapacity, x, y) {
         this.length = 20;
@@ -86,6 +94,24 @@ var GuineaPig = (function () {
     };
     GuineaPig.prototype.setPoopAmount = function (amount) {
         this.poopAmount = amount;
+    };
+    GuineaPig.prototype.move = function (direction) {
+        switch (direction) {
+            case Direction.north:
+                this.pos.y -= 1;
+                break;
+            case Direction.south:
+                this.pos.y += 1;
+                break;
+            case Direction.east:
+                this.pos.x += 1;
+                break;
+            case Direction.west:
+                this.pos.x -= 1;
+                break;
+            default:
+                throw new Error("Direction not found");
+        }
     };
     GuineaPig.prototype.eat = function (quantity) {
         console.log(this.name + " has eaten " + quantity + " of food.");

@@ -2,6 +2,7 @@
 enum Sex { "male", "female" };
 enum HairLength { "short", "medium", "long" };
 enum Color { "brown", "white", "black", "tan", "grey" };
+enum Direction { "north", "south", "east", "west" };
 
 class GuineaPig implements IGuineaPig {
 
@@ -86,6 +87,30 @@ class GuineaPig implements IGuineaPig {
 
     setPoopAmount(amount: number) {
         this.poopAmount = amount;
+    }
+
+    move(direction: Direction) {
+
+        switch (direction) {
+            case Direction.north:
+                this.pos.y -= 1;
+                break;
+
+            case Direction.south:
+                this.pos.y += 1;
+                break;
+
+            case Direction.east:
+                this.pos.x += 1;
+                break;
+
+            case Direction.west:
+                this.pos.x -= 1;
+                break
+
+            default:
+                throw new Error("Direction not found");
+        }
     }
 
     eat(quantity: number) {

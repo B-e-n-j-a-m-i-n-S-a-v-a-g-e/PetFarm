@@ -1,18 +1,33 @@
-var Renderer = (function () {
-    function Renderer(canvas, context, width, height) {
+﻿class Stage {
+
+    parent: HTMLElement;
+    canvas: HTMLCanvasElement;
+    context: CanvasRenderingContext2D;
+    width: number;
+    height: number;
+
+    private guineaPigs: IGuineaPig[] = [];
+
+    constructor(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D, width: number, height: number) {
+
         this.canvas = canvas;
         this.context = context;
+
         this.context.canvas.width = width;
         this.context.canvas.height = height;
+
         canvas.style.backgroundColor = "grey";
     }
-    Renderer.prototype.clearCanvas = function () {
+
+    clearStage() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    };
-    Renderer.prototype.renderGuineaPig = function (gp) {
+    }
+
+    renderGuineaPig(gp: IGuineaPig) {
         console.log("GUINEA PIG BEING RENDERED");
         this.context.save();
         switch (gp.getColor()) {
+
             case 0:
                 this.context.fillStyle = "brown";
                 break;
@@ -28,20 +43,25 @@ var Renderer = (function () {
             case 5:
                 this.context.fillStyle = "grey";
                 break;
+
         }
         this.context.fillStyle = "'" + gp.getColor() + "'";
         this.context.fillRect(gp.getX(), gp.getY(), gp.getWidth(), gp.getLength());
         this.context.fill();
         this.context.restore();
-    };
-    Renderer.prototype.renderGuineaPigPen = function (gpp) {
+    }
+
+    renderGuineaPigPen(gpp: GuineaPigPen) {
+
         this.context.strokeStyle = gpp.getColor();
         this.context.lineWidth = gpp.getThickness();
         this.context.strokeRect(gpp.getX(), gpp.getY(), gpp.getWidth(), gpp.getHeight());
         this.context.stroke();
-    };
-    Renderer.prototype.renderEmployee = function (employee) {
-    };
-    return Renderer;
-})();
-//# sourceMappingURL=Renderer.js.map
+    }
+
+    renderEmployee(employee: IEmployee) {
+
+    }
+
+
+}

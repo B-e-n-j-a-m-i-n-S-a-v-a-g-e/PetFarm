@@ -27,12 +27,23 @@ window.onload = () => {
 
     let bigBoss = new Manager("BigBoss", 200000000);
 
-    let renderer = new Renderer(canvas, context, 500, 500);
+    let clock = new Clock();
+    clock.createTickInterval();
+
     let pen = new GuineaPigPen(10, 10, 400, 400, 10, "#fff");
+
+    /*
+    let renderer = new Renderer(canvas, context, 500, 500);
+
     renderer.renderGuineaPig(fuzzy);
     renderer.renderGuineaPig(stinky);
     renderer.renderGuineaPig(shirley);
     renderer.renderGuineaPigPen(pen);
+    */
 
-   
+    let stage = new Stage(canvas, context, 500, 500);
+    stage.renderGuineaPig(fuzzy);
+    stage.renderGuineaPig(stinky);
+    stage.renderGuineaPig(shirley);
+    stage.renderGuineaPigPen(pen);
 };

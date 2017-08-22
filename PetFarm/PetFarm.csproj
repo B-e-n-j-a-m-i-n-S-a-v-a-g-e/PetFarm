@@ -41,7 +41,7 @@
     <TypeScriptCompile Include="IEmployee.ts" />
     <TypeScriptCompile Include="IGuineaPig.ts" />
     <TypeScriptCompile Include="Manager.ts" />
-    <TypeScriptCompile Include="Renderer.ts" />
+    <TypeScriptCompile Include="Stage.ts" />
     <TypeScriptCompile Include="Trainer.ts" />
     <TypeScriptCompile Include="Vector2D.ts" />
   </ItemGroup>

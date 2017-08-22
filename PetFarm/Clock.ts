@@ -15,7 +15,10 @@ class Clock {
     private currentTime = 0; 
     private displayTime: boolean = false;
 
+    private guineaPigMoveDirection: Direction;
+
     constructor() {
+
 
     }
 
@@ -59,5 +62,8 @@ class Clock {
 
         TimeMeasurement.tick++;
         console.log(TimeMeasurement.tick);
+
+        this.guineaPigMoveDirection = Math.floor(Math.random() * Object.keys(Color).length/2);
+        console.log(this.guineaPigMoveDirection);
     }
 }

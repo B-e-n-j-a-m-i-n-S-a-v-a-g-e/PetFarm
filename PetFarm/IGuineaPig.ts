@@ -3,6 +3,7 @@
 interface IGuineaPig {
 
     eat(quantity: number);
+    move(direction: Direction);
     bweep(numSweeps: number);
     poop(quantity: number);
     getX();

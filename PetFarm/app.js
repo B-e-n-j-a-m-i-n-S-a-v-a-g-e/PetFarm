@@ -17,11 +17,21 @@ window.onload = function () {
     var linda = new Cleaner("Linda", 30000, 400, 20);
     var marcy = new Accountant("Marcy", 100000, 400, 50);
     var bigBoss = new Manager("BigBoss", 200000000);
-    var renderer = new Renderer(canvas, context, 500, 500);
+    var clock = new Clock();
+    clock.createTickInterval();
     var pen = new GuineaPigPen(10, 10, 400, 400, 10, "#fff");
+    /*
+    let renderer = new Renderer(canvas, context, 500, 500);
+
     renderer.renderGuineaPig(fuzzy);
     renderer.renderGuineaPig(stinky);
     renderer.renderGuineaPig(shirley);
     renderer.renderGuineaPigPen(pen);
+    */
+    var stage = new Stage(canvas, context, 500, 500);
+    stage.renderGuineaPig(fuzzy);
+    stage.renderGuineaPig(stinky);
+    stage.renderGuineaPig(shirley);
+    stage.renderGuineaPigPen(pen);
 };
 //# sourceMappingURL=app.js.map
