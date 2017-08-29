@@ -44,9 +44,7 @@ var Clock = (function () {
             TimeMeasurement.numMonthsElapsed = 0;
         }
         TimeMeasurement.tick++;
-        console.log(TimeMeasurement.tick);
         this.guineaPigMoveDirection = Math.floor(Math.random() * Object.keys(Color).length / 2);
-        console.log(this.guineaPigMoveDirection);
     };
     return Clock;
 })();

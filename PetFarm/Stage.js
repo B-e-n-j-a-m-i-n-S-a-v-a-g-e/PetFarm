@@ -6,9 +6,13 @@ var Stage = (function () {
         this.context.canvas.width = width;
         this.context.canvas.height = height;
         canvas.style.backgroundColor = "grey";
+        this.clock = new Clock();
+        this.clock.createTickInterval();
     }
     Stage.prototype.clearStage = function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    };
+    Stage.prototype.update = function () {
     };
     Stage.prototype.render = function (gp, gpg, pen) {
         this.renderGuineaPig(gp);
@@ -52,6 +56,7 @@ var Stage = (function () {
         this.context.stroke();
     };
     Stage.prototype.renderEmployee = function (employee) {
+        //TODO
     };
     return Stage;
 })();

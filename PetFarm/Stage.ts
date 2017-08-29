@@ -5,28 +5,37 @@
     context: CanvasRenderingContext2D;
     width: number;
     height: number;
+    clock: Clock;
 
     private guineaPigs: IGuineaPig[] = [];
 
     constructor(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D, width: number, height: number) {
 
-        this.canvas = canvas;
-        this.context = context;
+            this.canvas = canvas;
+            this.context = context;
 
-        this.context.canvas.width = width;
-        this.context.canvas.height = height;
+            this.context.canvas.width = width;
+            this.context.canvas.height = height;
 
-        canvas.style.backgroundColor = "grey";
+            canvas.style.backgroundColor = "grey";
+
+            this.clock = new Clock();
+            this.clock.createTickInterval();
     }
 
     clearStage() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
+    update() {
+
+    }
+
     render(gp: IGuineaPig, gpg?: GuineaPigGroup, pen?: GuineaPigPen) {
-        this.renderGuineaPig(gp);
-        this.renderGuineaPigGroup(gpg);
-        this.renderGuineaPigPen(pen);
+
+            this.renderGuineaPig(gp);
+            this.renderGuineaPigGroup(gpg);
+            this.renderGuineaPigPen(pen);
     }
 
     renderGuineaPig(gp: IGuineaPig) {
@@ -72,8 +81,6 @@
     }
 
     renderEmployee(employee: IEmployee) {
-
+        //TODO
     }
-
-
 }

@@ -27,14 +27,16 @@ window.onload = () => {
 
     let bigBoss = new Manager("BigBoss", 200000000);
 
-    let clock = new Clock();
-    clock.createTickInterval();
 
     let pen = new GuineaPigPen(10, 10, 400, 400, 10, "#fff");
 
+    // By initializing the stage, a new game clock is set in motion
     let stage = new Stage(canvas, context, 500, 500);
+
     let gpGrp = new GuineaPigGroup();
     gpGrp.addMultipleGP(fuzzy, stinky, shirley);
+
+
 
     stage.render(fuzzy,gpGrp, pen);
 };

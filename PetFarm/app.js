@@ -17,9 +17,8 @@ window.onload = function () {
     var linda = new Cleaner("Linda", 30000, 400, 20);
     var marcy = new Accountant("Marcy", 100000, 400, 50);
     var bigBoss = new Manager("BigBoss", 200000000);
-    var clock = new Clock();
-    clock.createTickInterval();
     var pen = new GuineaPigPen(10, 10, 400, 400, 10, "#fff");
+    // By initializing the stage, a new game clock is set in motion
     var stage = new Stage(canvas, context, 500, 500);
     var gpGrp = new GuineaPigGroup();
     gpGrp.addMultipleGP(fuzzy, stinky, shirley);
