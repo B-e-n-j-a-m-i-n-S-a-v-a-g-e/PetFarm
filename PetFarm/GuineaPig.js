@@ -98,6 +98,7 @@ var GuineaPig = (function () {
     GuineaPig.prototype.move = function (direction) {
         switch (direction) {
             case Direction.north:
+                console.log("in the right place");
                 this.pos.y -= 1;
                 break;
             case Direction.south:

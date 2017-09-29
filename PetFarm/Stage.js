@@ -6,18 +6,31 @@ var Stage = (function () {
         this.context.canvas.width = width;
         this.context.canvas.height = height;
         canvas.style.backgroundColor = "grey";
+        //By instantiating Stage, a new clock is instantiated and the main loop is called
         this.clock = new Clock();
-        this.clock.createTickInterval();
+        this.clock.createTickInterval(this);
     }
     Stage.prototype.clearStage = function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     };
+    Stage.prototype.add = function (gp) {
+        this.guineaPigs.push(gp);
+    };
     Stage.prototype.update = function () {
+        this.moveGuineaPigs();
     };
     Stage.prototype.render = function (gp, gpg, pen) {
+        console.log("rendering");
         this.renderGuineaPig(gp);
         this.renderGuineaPigGroup(gpg);
         this.renderGuineaPigPen(pen);
+    };
+    Stage.prototype.moveGuineaPigs = function () {
+        for (var i = 0; i < this.guineaPigs.length; i++) {
+            this.guineaPigs[i].move(Direction.north);
+            this.clearStage();
+            this.render(this.guineaPigs[i]);
+        }
     };
     Stage.prototype.renderGuineaPig = function (gp) {
         console.log("GUINEA PIG BEING RENDERED");

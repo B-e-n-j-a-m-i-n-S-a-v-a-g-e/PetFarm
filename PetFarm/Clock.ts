@@ -38,11 +38,12 @@ class Clock {
         }
     }
 
-    createTickInterval() {
-        window.setInterval(this.tick, 1000);
+    createTickInterval(ctx:Stage) {
+        window.setInterval(this.tick, 1000, ctx);
     }
 
-    tick() {
+    //Main update loop for game. Owned by Stage.
+    tick(ctx: Stage) {
 
         if (TimeMeasurement.tick === 23) {
             TimeMeasurement.tick = 0;
@@ -60,5 +61,8 @@ class Clock {
         TimeMeasurement.tick++;
 
         this.guineaPigMoveDirection = Math.floor(Math.random() * Object.keys(Color).length / 2);
+        
+        //Updates everything on stage
+        ctx.update();
     }
 }

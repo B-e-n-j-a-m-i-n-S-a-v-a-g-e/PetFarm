@@ -93,6 +93,7 @@ class GuineaPig implements IGuineaPig {
 
         switch (direction) {
             case Direction.north:
+                console.log("in the right place");
                 this.pos.y -= 1;
                 break;
 

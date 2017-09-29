@@ -19,23 +19,36 @@
 
             canvas.style.backgroundColor = "grey";
 
+            //By instantiating Stage, a new clock is instantiated and the main loop is called
             this.clock = new Clock();
-            this.clock.createTickInterval();
+            this.clock.createTickInterval(this);
     }
 
     clearStage() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    update() {
+    add(gp: IGuineaPig) {
+        this.guineaPigs.push(gp);
+    }
 
+    update() {
+        this.moveGuineaPigs();
     }
 
     render(gp: IGuineaPig, gpg?: GuineaPigGroup, pen?: GuineaPigPen) {
-
+        console.log("rendering");
             this.renderGuineaPig(gp);
             this.renderGuineaPigGroup(gpg);
             this.renderGuineaPigPen(pen);
+    }
+
+    moveGuineaPigs() {
+        for (let i: number = 0; i < this.guineaPigs.length; i++) {
+            this.guineaPigs[i].move(Direction.north);
+            this.clearStage();
+            this.render(this.guineaPigs[i]);
+        }
     }
 
     renderGuineaPig(gp: IGuineaPig) {

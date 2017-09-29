@@ -27,10 +27,11 @@ var Clock = (function () {
             console.log(TimeMeasurement.tick);
         }
     };
-    Clock.prototype.createTickInterval = function () {
-        window.setInterval(this.tick, 1000);
+    Clock.prototype.createTickInterval = function (ctx) {
+        window.setInterval(this.tick, 1000, ctx);
     };
-    Clock.prototype.tick = function () {
+    //Main update loop for game. Owned by Stage.
+    Clock.prototype.tick = function (ctx) {
         if (TimeMeasurement.tick === 23) {
             TimeMeasurement.tick = 0;
             TimeMeasurement.numDaysElapsed++;
@@ -45,6 +46,8 @@ var Clock = (function () {
         }
         TimeMeasurement.tick++;
         this.guineaPigMoveDirection = Math.floor(Math.random() * Object.keys(Color).length / 2);
+        //Updates everything on stage
+        ctx.update();
     };
     return Clock;
 })();
