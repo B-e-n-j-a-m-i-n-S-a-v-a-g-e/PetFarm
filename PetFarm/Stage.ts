@@ -28,12 +28,16 @@
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    add(gp: IGuineaPig) {
+    addChild(gp: IGuineaPig) {
         this.guineaPigs.push(gp);
     }
 
     update() {
         this.moveGuineaPigs();
+        this.clearStage();
+        for (let i: number = 0; i < this.guineaPigs.length; i++) {
+            this.render(this.guineaPigs[i]);
+        }
     }
 
     render(gp: IGuineaPig, gpg?: GuineaPigGroup, pen?: GuineaPigPen) {
@@ -46,8 +50,6 @@
     moveGuineaPigs() {
         for (let i: number = 0; i < this.guineaPigs.length; i++) {
             this.guineaPigs[i].move(Direction.north);
-            this.clearStage();
-            this.render(this.guineaPigs[i]);
         }
     }
 

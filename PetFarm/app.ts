@@ -37,7 +37,6 @@ window.onload = () => {
     gpGrp.addMultipleGP(fuzzy, stinky, shirley);
 
 
-    stage.add(fuzzy);
-    stage.render(fuzzy, gpGrp, pen);
+    stage.addChild(fuzzy);
     stage.update();
 };

@@ -13,11 +13,15 @@ var Stage = (function () {
     Stage.prototype.clearStage = function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     };
-    Stage.prototype.add = function (gp) {
+    Stage.prototype.addChild = function (gp) {
         this.guineaPigs.push(gp);
     };
     Stage.prototype.update = function () {
         this.moveGuineaPigs();
+        this.clearStage();
+        for (var i = 0; i < this.guineaPigs.length; i++) {
+            this.render(this.guineaPigs[i]);
+        }
     };
     Stage.prototype.render = function (gp, gpg, pen) {
         console.log("rendering");
@@ -28,8 +32,6 @@ var Stage = (function () {
     Stage.prototype.moveGuineaPigs = function () {
         for (var i = 0; i < this.guineaPigs.length; i++) {
             this.guineaPigs[i].move(Direction.north);
-            this.clearStage();
-            this.render(this.guineaPigs[i]);
         }
     };
     Stage.prototype.renderGuineaPig = function (gp) {

@@ -22,8 +22,7 @@ window.onload = function () {
     var stage = new Stage(canvas, context, 500, 500);
     var gpGrp = new GuineaPigGroup();
     gpGrp.addMultipleGP(fuzzy, stinky, shirley);
-    stage.add(fuzzy);
-    stage.render(fuzzy, gpGrp, pen);
+    stage.addChild(fuzzy);
     stage.update();
 };
 //# sourceMappingURL=app.js.map
