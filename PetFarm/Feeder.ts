@@ -17,7 +17,7 @@
         gp.setFoodLevel(gp.getFoodLevel() + amount);
     }
 
-    feedMultipleGuineaPigs(gpGroup: GuineaPigGroup, amount: number) {
+    feedMultipleGuineaPigs(gpGroup: IGuineaPigGroup, amount: number) {
 
         //Iterate through group of pigs & feeds them. Adds amount to totalAmountOfFoodUsed
         for (let i = 0; i < gpGroup.getNumGuineaPigs(); i++) {

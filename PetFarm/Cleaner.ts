@@ -2,12 +2,12 @@
 
     private totalPoopCleaned = 0;
 
-    cleanSingleGuineaPig(gp: GuineaPig) {
+    cleanSingleGuineaPig(gp: IGuineaPig) {
         this.totalPoopCleaned += gp.getPoopAmount();
         gp.setPoopAmount(0);
     }
 
-    cleanGuineaPigGroup(gpGroup: GuineaPigGroup) {
+    cleanGuineaPigGroup(gpGroup: IGuineaPigGroup) {
 
         //Iterates through group of pigs, removes their poop and sets their poop amount to 0.
         for (let i = 0; i < gpGroup.getNumGuineaPigs(); i++) {

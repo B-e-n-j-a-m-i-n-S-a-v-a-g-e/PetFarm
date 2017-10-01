@@ -42,6 +42,7 @@
     <TypeScriptCompile Include="IEmployee.ts" />
     <TypeScriptCompile Include="IGameObject.ts" />
     <TypeScriptCompile Include="IGuineaPig.ts" />
+    <TypeScriptCompile Include="IGuineaPigGroup.ts" />
     <TypeScriptCompile Include="Manager.ts" />
     <TypeScriptCompile Include="Stage.ts" />
     <TypeScriptCompile Include="Trainer.ts" />

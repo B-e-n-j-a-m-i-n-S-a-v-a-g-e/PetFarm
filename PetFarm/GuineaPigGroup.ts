@@ -1,6 +1,6 @@
-﻿class GuineaPigGroup extends GameObject {
+﻿class GuineaPigGroup extends GameObject implements IGuineaPigGroup {
 
-    guineaPigs: GuineaPig[];
+    guineaPigs: IGuineaPig[];
     private type: string = "GuineaPigGroup";
 
     constructor() {
@@ -8,7 +8,7 @@
         this.guineaPigs = [];
     }
 
-    removeGP(gp: GuineaPig) {
+    removeGP(gp: IGuineaPig) {
 
         let index = this.guineaPigs.indexOf(gp);
         
@@ -17,12 +17,12 @@
         }
     }
 
-    addGP(gp: GuineaPig) {
+    addGP(gp: IGuineaPig) {
 
         this.guineaPigs.push(gp);
     }
 
-    addMultipleGP(first: GuineaPig, ...last: GuineaPig[]) {
+    addMultipleGP(first: IGuineaPig, ...last: IGuineaPig[]) {
 
         for (let i = 0; i < arguments.length; i++) {
             this.addGP(arguments[i]);
@@ -34,7 +34,7 @@
         return this.guineaPigs.length;
     }
 
-    moveGPToDifferentGroup(source: GuineaPig, target: GuineaPigGroup) {
+    moveGPToDifferentGroup(source: GuineaPig, target: IGuineaPigGroup) {
 
         this.removeGP(source);
         target.addGP(source);
