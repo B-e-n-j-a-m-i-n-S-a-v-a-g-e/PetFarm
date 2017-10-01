@@ -23,4 +23,3 @@ var Cleaner = (function (_super) {
     };
     return Cleaner;
 })(Employee);
-//# sourceMappingURL=Cleaner.js.map

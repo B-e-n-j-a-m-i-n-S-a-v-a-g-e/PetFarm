@@ -30,4 +30,3 @@ var Trainer = (function (_super) {
     };
     return Trainer;
 })(Employee);
-//# sourceMappingURL=Trainer.js.map

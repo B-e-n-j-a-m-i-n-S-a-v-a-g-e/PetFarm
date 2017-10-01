@@ -51,4 +51,3 @@ var Clock = (function () {
     };
     return Clock;
 })();
-//# sourceMappingURL=Clock.js.map

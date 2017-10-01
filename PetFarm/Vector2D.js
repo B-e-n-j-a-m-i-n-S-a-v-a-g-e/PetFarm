@@ -17,4 +17,3 @@ var Vector2D = (function () {
     };
     return Vector2D;
 })();
-//# sourceMappingURL=Vector2D.js.map

@@ -36,4 +36,3 @@ var Employee = (function (_super) {
     };
     return Employee;
 })(GameObject);
-//# sourceMappingURL=Employee.js.map

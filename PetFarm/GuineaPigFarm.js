@@ -19,4 +19,3 @@ var GuineaPigFarm = (function (_super) {
     };
     return GuineaPigFarm;
 })(GameObject);
-//# sourceMappingURL=GuineaPigFarm.js.map

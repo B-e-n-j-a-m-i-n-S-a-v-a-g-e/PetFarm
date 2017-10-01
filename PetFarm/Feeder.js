@@ -28,4 +28,3 @@ var Feeder = (function (_super) {
     };
     return Feeder;
 })(Employee);
-//# sourceMappingURL=Feeder.js.map

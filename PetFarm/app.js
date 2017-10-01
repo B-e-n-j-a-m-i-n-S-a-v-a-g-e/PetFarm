@@ -29,4 +29,3 @@ window.onload = function () {
     stage.addChild(gpGrp);
     stage.update();
 };
-//# sourceMappingURL=app.js.map

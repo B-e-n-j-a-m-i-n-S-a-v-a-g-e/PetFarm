@@ -21,4 +21,3 @@ var Accountant = (function (_super) {
     };
     return Accountant;
 })(Employee);
-//# sourceMappingURL=Accountant.js.map

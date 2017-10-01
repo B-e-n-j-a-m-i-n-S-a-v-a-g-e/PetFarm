@@ -11,4 +11,3 @@ var GameObject = (function () {
     };
     return GameObject;
 })();
-//# sourceMappingURL=GameObject.js.map

@@ -193,4 +193,3 @@ var GuineaPig = (function (_super) {
     };
     return GuineaPig;
 })(GameObject);
-//# sourceMappingURL=GuineaPig.js.map

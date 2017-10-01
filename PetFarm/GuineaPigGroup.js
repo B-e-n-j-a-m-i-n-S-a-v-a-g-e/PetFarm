@@ -37,4 +37,3 @@ var GuineaPigGroup = (function (_super) {
     };
     return GuineaPigGroup;
 })(GameObject);
-//# sourceMappingURL=GuineaPigGroup.js.map

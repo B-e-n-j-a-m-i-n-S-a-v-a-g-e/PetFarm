@@ -35,4 +35,3 @@ var GuineaPigPen = (function (_super) {
     };
     return GuineaPigPen;
 })(GameObject);
-//# sourceMappingURL=GuineaPigPen.js.map

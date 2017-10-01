@@ -43,4 +43,3 @@ var Manager = (function () {
     };
     return Manager;
 })();
-//# sourceMappingURL=Manager.js.map

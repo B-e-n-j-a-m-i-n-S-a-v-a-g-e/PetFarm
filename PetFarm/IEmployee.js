@@ -17,4 +17,3 @@ var IEmployee = (function () {
     ;
     return IEmployee;
 })();
-//# sourceMappingURL=IEmployee.js.map
