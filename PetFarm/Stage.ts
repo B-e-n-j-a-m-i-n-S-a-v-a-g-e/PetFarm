@@ -8,6 +8,8 @@
     clock: Clock;
 
     private guineaPigs: IGuineaPig[] = [];
+    private guineaPigGroups: GuineaPigGroup[] = [];
+    private guineaPigPens: GuineaPigPen[] = [];
 
     constructor(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D, width: number, height: number) {
 
@@ -25,37 +27,80 @@
     }
 
     clearStage() {
+
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
-    addChild(gp: IGuineaPig) {
-        this.guineaPigs.push(gp);
+    addChild(go: any) {
+
+        switch (go.type) {
+
+            case "GuineaPig":
+            this.guineaPigs.push(go);
+            break;
+
+            case "GuineaPigGroup":
+            this.guineaPigGroups.push(go);
+            break;
+
+            case "GuineaPigPen":
+            this.guineaPigPens.push(go);
+            break;
+        }
+        console.log(this.guineaPigGroups);
     }
 
     update() {
+
         this.moveGuineaPigs();
+        this.moveGuineaPigGroups();
         this.clearStage();
+
         for (let i: number = 0; i < this.guineaPigs.length; i++) {
             this.render(this.guineaPigs[i]);
         }
+        for (let j: number = 0; j < this.guineaPigGroups.length; j++) {
+            this.render(undefined,this.guineaPigGroups[j]);
+        }
+        /* for (let k: number = 0; k < this.renderGuineaPigPen.length; k++) {
+            this.render(undefined, undefined, this.guineaPigPens[k]);
+        } */
+
     }
 
-    render(gp: IGuineaPig, gpg?: GuineaPigGroup, pen?: GuineaPigPen) {
-        console.log("rendering");
+
+    //TODO: Ugly as hell. Params need to be refactored.
+    render(gp?: IGuineaPig, gpg?: GuineaPigGroup, pen?: GuineaPigPen) {
+
+        if (this.guineaPigs.length > 0) {
             this.renderGuineaPig(gp);
+        }
+        if (this.guineaPigGroups.length > 0) {
             this.renderGuineaPigGroup(gpg);
-            this.renderGuineaPigPen(pen);
+        }
+        //this.renderGuineaPigPen(pen);
     }
 
     moveGuineaPigs() {
+
         for (let i: number = 0; i < this.guineaPigs.length; i++) {
-            this.guineaPigs[i].move(Direction.north);
+            this.guineaPigs[i].move(this.guineaPigs[i].getCurrentDirection());
+        }
+    }
+
+    moveGuineaPigGroups() {
+
+        for (let i: number = 0; i < this.guineaPigGroups.length; i++) {
+            for (let j: number = 0; j < this.guineaPigGroups[i].guineaPigs.length; j++) {
+                this.guineaPigGroups[i].guineaPigs[j].move(this.guineaPigGroups[i].guineaPigs[j].getCurrentDirection());
+            }    
         }
     }
 
     renderGuineaPig(gp: IGuineaPig) {
-        console.log("GUINEA PIG BEING RENDERED");
+
         this.context.save();
+        console.log(gp);
         switch (gp.getColor()) {
 
             case 0:
@@ -83,7 +128,7 @@
 
     renderGuineaPigGroup(gpg: GuineaPigGroup) {
         for (let i = 0; i < gpg.getNumGuineaPigs(); i++) {
-            this.renderGuineaPig(gpg[i]);
+            this.renderGuineaPig(gpg.guineaPigs[i]);
         }
     }
 

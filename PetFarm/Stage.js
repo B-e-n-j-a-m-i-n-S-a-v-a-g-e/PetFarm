@@ -1,6 +1,8 @@
 var Stage = (function () {
     function Stage(canvas, context, width, height) {
         this.guineaPigs = [];
+        this.guineaPigGroups = [];
+        this.guineaPigPens = [];
         this.canvas = canvas;
         this.context = context;
         this.context.canvas.width = width;
@@ -13,30 +15,59 @@ var Stage = (function () {
     Stage.prototype.clearStage = function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     };
-    Stage.prototype.addChild = function (gp) {
-        this.guineaPigs.push(gp);
+    Stage.prototype.addChild = function (go) {
+        switch (go.type) {
+            case "GuineaPig":
+                this.guineaPigs.push(go);
+                break;
+            case "GuineaPigGroup":
+                this.guineaPigGroups.push(go);
+                break;
+            case "GuineaPigPen":
+                this.guineaPigPens.push(go);
+                break;
+        }
+        console.log(this.guineaPigGroups);
     };
     Stage.prototype.update = function () {
         this.moveGuineaPigs();
+        this.moveGuineaPigGroups();
         this.clearStage();
         for (var i = 0; i < this.guineaPigs.length; i++) {
             this.render(this.guineaPigs[i]);
         }
+        for (var j = 0; j < this.guineaPigGroups.length; j++) {
+            this.render(undefined, this.guineaPigGroups[j]);
+        }
+        /* for (let k: number = 0; k < this.renderGuineaPigPen.length; k++) {
+            this.render(undefined, undefined, this.guineaPigPens[k]);
+        } */
     };
+    //TODO: Ugly as hell. Params need to be refactored.
     Stage.prototype.render = function (gp, gpg, pen) {
-        console.log("rendering");
-        this.renderGuineaPig(gp);
-        this.renderGuineaPigGroup(gpg);
-        this.renderGuineaPigPen(pen);
+        if (this.guineaPigs.length > 0) {
+            this.renderGuineaPig(gp);
+        }
+        if (this.guineaPigGroups.length > 0) {
+            this.renderGuineaPigGroup(gpg);
+        }
+        //this.renderGuineaPigPen(pen);
     };
     Stage.prototype.moveGuineaPigs = function () {
         for (var i = 0; i < this.guineaPigs.length; i++) {
-            this.guineaPigs[i].move(Direction.north);
+            this.guineaPigs[i].move(this.guineaPigs[i].getCurrentDirection());
+        }
+    };
+    Stage.prototype.moveGuineaPigGroups = function () {
+        for (var i = 0; i < this.guineaPigGroups.length; i++) {
+            for (var j = 0; j < this.guineaPigGroups[i].guineaPigs.length; j++) {
+                this.guineaPigGroups[i].guineaPigs[j].move(this.guineaPigGroups[i].guineaPigs[j].getCurrentDirection());
+            }
         }
     };
     Stage.prototype.renderGuineaPig = function (gp) {
-        console.log("GUINEA PIG BEING RENDERED");
         this.context.save();
+        console.log(gp);
         switch (gp.getColor()) {
             case 0:
                 this.context.fillStyle = "brown";
@@ -61,7 +92,7 @@ var Stage = (function () {
     };
     Stage.prototype.renderGuineaPigGroup = function (gpg) {
         for (var i = 0; i < gpg.getNumGuineaPigs(); i++) {
-            this.renderGuineaPig(gpg[i]);
+            this.renderGuineaPig(gpg.guineaPigs[i]);
         }
     };
     Stage.prototype.renderGuineaPigPen = function (gpp) {

@@ -1,4 +1,4 @@
-﻿class Employee implements IEmployee {
+﻿class Employee extends GameObject implements IEmployee {
 
     private name: string;
     private salary: number;
@@ -8,6 +8,7 @@
     private y: number;
     
     constructor(name: string, salary: number, x: number, y: number) {
+        super();
         this.name = name;
         this.salary = salary;
         this.isFormallyHired = false;

@@ -5,7 +5,7 @@
  */
 
 
-class GuineaPigFarm {
+class GuineaPigFarm extends GameObject {
 
     trainer: Trainer;
     feeder: Feeder;
@@ -16,7 +16,7 @@ class GuineaPigFarm {
 
 
     constructor() {
-
+        super();
         this.init();
     }
 

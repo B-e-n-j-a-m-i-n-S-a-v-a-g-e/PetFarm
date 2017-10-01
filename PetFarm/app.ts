@@ -37,6 +37,12 @@ window.onload = () => {
     gpGrp.addMultipleGP(fuzzy, stinky, shirley);
 
 
-    stage.addChild(fuzzy);
+    fuzzy.setCurrentDirection(Direction.west);
+    stinky.setCurrentDirection(Direction.east);
+
+    //stage.addChild(stinky);
+    //stage.addChild(fuzzy);
+
+    stage.addChild(gpGrp);
     stage.update();
 };

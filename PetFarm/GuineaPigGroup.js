@@ -1,5 +1,13 @@
-var GuineaPigGroup = (function () {
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var GuineaPigGroup = (function (_super) {
+    __extends(GuineaPigGroup, _super);
     function GuineaPigGroup() {
+        _super.call(this);
+        this.type = "GuineaPigGroup";
         this.guineaPigs = [];
     }
     GuineaPigGroup.prototype.removeGP = function (gp) {
@@ -28,5 +36,5 @@ var GuineaPigGroup = (function () {
         target.addGP(source);
     };
     return GuineaPigGroup;
-})();
+})(GameObject);
 //# sourceMappingURL=GuineaPigGroup.js.map

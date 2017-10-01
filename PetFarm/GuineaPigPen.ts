@@ -1,6 +1,6 @@
-﻿class GuineaPigPen {
+﻿class GuineaPigPen extends GameObject {
 
-
+    type: string = "GuineaPigPen";
     x: number;
     y: number;
     width: number;
@@ -9,6 +9,7 @@
     color: string;
 
     constructor(x: number, y: number, width: number, height: number, thickness: number, color: string) {
+        super();
         this.x = x;
         this.y = y;
         this.width = width;

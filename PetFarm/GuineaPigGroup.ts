@@ -1,10 +1,10 @@
-﻿class GuineaPigGroup {
+﻿class GuineaPigGroup extends GameObject {
 
     guineaPigs: GuineaPig[];
-
+    private type: string = "GuineaPigGroup";
 
     constructor() {
-
+        super();
         this.guineaPigs = [];
     }
 

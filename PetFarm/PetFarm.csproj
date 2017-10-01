@@ -34,11 +34,13 @@
     <TypeScriptCompile Include="Clock.ts" />
     <TypeScriptCompile Include="Employee.ts" />
     <TypeScriptCompile Include="Feeder.ts" />
+    <TypeScriptCompile Include="GameObject.ts" />
     <TypeScriptCompile Include="GuineaPig.ts" />
     <TypeScriptCompile Include="GuineaPigFarm.ts" />
     <TypeScriptCompile Include="GuineaPigGroup.ts" />
     <TypeScriptCompile Include="GuineaPigPen.ts" />
     <TypeScriptCompile Include="IEmployee.ts" />
+    <TypeScriptCompile Include="IGameObject.ts" />
     <TypeScriptCompile Include="IGuineaPig.ts" />
     <TypeScriptCompile Include="Manager.ts" />
     <TypeScriptCompile Include="Stage.ts" />

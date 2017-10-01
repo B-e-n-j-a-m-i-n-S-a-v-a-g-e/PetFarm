@@ -13,5 +13,7 @@ interface IGuineaPig {
     getLength();
     getWidth();
     getColor();
+    getCurrentDirection();
+    setCurrentDirection(direction: Direction);
 
 }
