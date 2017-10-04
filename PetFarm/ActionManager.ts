@@ -3,7 +3,7 @@
 
     performDailyActions(cleaner: Cleaner) {
 
-        switch (TimeMeasurement.tick) {
+     /*   switch (TimeMeasurement.tick) {
 
             case 8:
                 //Cleaner cleans poop from the guinea pig groups
@@ -20,6 +20,7 @@
                 console.log("Something else...");
                 break;
         }
-    }
+        */
+    } 
 
 }
