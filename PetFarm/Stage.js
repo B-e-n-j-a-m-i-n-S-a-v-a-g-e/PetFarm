@@ -3,6 +3,7 @@ var Stage = (function () {
         this.guineaPigs = [];
         this.guineaPigGroups = [];
         this.guineaPigPens = [];
+        this.guineaPigPoops = [];
         this.canvas = canvas;
         this.context = context;
         this.context.canvas.width = width;
@@ -32,7 +33,14 @@ var Stage = (function () {
         this.moveGuineaPigs();
         this.moveGuineaPigGroups();
         this.clearStage();
+        // Should not be here. Need a renderer object to handle all the rendering
         for (var i = 0; i < this.guineaPigs.length; i++) {
+            if (this.clock.getTick() % 5 == 0) {
+                console.log("NOW!");
+                this.guineaPigPoops.push(new GuineaPigPoop(this.guineaPigs[i].getX(), this.guineaPigs[i].getY()));
+            }
+            if (this.guineaPigPoops.length > 0)
+                this.renderGuineaPigPoop(this.guineaPigPoops[i]);
             this.renderGuineaPig(this.guineaPigs[i]);
         }
         for (var j = 0; j < this.guineaPigGroups.length; j++) {
@@ -88,6 +96,13 @@ var Stage = (function () {
         this.context.lineWidth = gpp.getThickness();
         this.context.strokeRect(gpp.getX(), gpp.getY(), gpp.getWidth(), gpp.getHeight());
         this.context.stroke();
+    };
+    Stage.prototype.renderGuineaPigPoop = function (gp) {
+        this.context.save();
+        this.context.fillStyle = "#654321";
+        this.context.fillRect(gp.getX(), gp.getY(), 5, 5);
+        this.context.fill();
+        this.context.restore();
     };
     Stage.prototype.renderEmployee = function (employee) {
         //TODO

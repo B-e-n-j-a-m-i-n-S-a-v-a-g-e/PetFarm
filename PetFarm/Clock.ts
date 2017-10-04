@@ -19,6 +19,11 @@ class Clock {
 
     constructor() {}
 
+
+    getTick() {
+        return TimeMeasurement.tick;
+    }
+
     toggleDisplayCurrentTime(val: boolean) {
         this.displayTime = val;
     }
@@ -62,6 +67,7 @@ class Clock {
 
         this.guineaPigMoveDirection = Math.floor(Math.random() * Object.keys(Color).length / 2);
         
+
         //Updates everything on stage
         ctx.update();
     }

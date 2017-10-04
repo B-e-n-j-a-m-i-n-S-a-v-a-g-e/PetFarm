@@ -39,6 +39,7 @@
     <TypeScriptCompile Include="GuineaPigFarm.ts" />
     <TypeScriptCompile Include="GuineaPigGroup.ts" />
     <TypeScriptCompile Include="GuineaPigPen.ts" />
+    <TypeScriptCompile Include="GuineaPigPoop.ts" />
     <TypeScriptCompile Include="IEmployee.ts" />
     <TypeScriptCompile Include="IGameObject.ts" />
     <TypeScriptCompile Include="IGuineaPig.ts" />

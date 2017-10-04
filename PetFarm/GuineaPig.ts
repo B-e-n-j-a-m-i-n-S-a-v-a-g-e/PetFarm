@@ -148,6 +148,7 @@ class GuineaPig extends GameObject implements IGuineaPig {
         if (this.foodLevel > 0) {
             this.foodLevel -= quantity;
             this.poopAmount += quantity;
+            console.log("plop");
         }
         else {
             console.log("Poor little " + this.name + " has no more food in " + pigPronoun + " belly.");

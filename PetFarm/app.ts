@@ -40,6 +40,8 @@ window.onload = () => {
     fuzzy.setCurrentDirection(Direction.west);
     stinky.setCurrentDirection(Direction.east);
 
+    stinky.setFoodLevel(20);
+
     stage.addChild(stinky);
     stage.addChild(fuzzy);
     stage.addChild(pen);

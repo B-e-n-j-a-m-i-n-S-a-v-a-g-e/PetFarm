@@ -10,6 +10,8 @@
     private guineaPigs: IGuineaPig[] = [];
     private guineaPigGroups: GuineaPigGroup[] = [];
     private guineaPigPens: GuineaPigPen[] = [];
+    private guineaPigPoops: GuineaPigPoop[] = [];
+    
 
     constructor(canvas: HTMLCanvasElement, context: CanvasRenderingContext2D, width: number, height: number) {
 
@@ -50,13 +52,20 @@
 
     update() {
 
-
         this.moveGuineaPigs();
         this.moveGuineaPigGroups();
         this.clearStage();
 
-        
+        // Should not be here. Need a renderer object to handle all the rendering
         for (let i: number = 0; i < this.guineaPigs.length; i++) {
+
+            if (this.clock.getTick() % 5 == 0) {
+                console.log("NOW!");
+                this.guineaPigPoops.push(new GuineaPigPoop(this.guineaPigs[i].getX(), this.guineaPigs[i].getY()));
+            }
+            if (this.guineaPigPoops.length > 0) 
+            this.renderGuineaPigPoop(this.guineaPigPoops[i]);
+
             this.renderGuineaPig(this.guineaPigs[i]);
         }
         for (let j: number = 0; j < this.guineaPigGroups.length; j++) {
@@ -122,6 +131,15 @@
         this.context.lineWidth = gpp.getThickness();
         this.context.strokeRect(gpp.getX(), gpp.getY(), gpp.getWidth(), gpp.getHeight());
         this.context.stroke();
+    }
+
+    renderGuineaPigPoop(gp: GuineaPigPoop) {
+
+        this.context.save();
+        this.context.fillStyle = "#654321";
+        this.context.fillRect(gp.getX(), gp.getY(), 5, 5);
+        this.context.fill();
+        this.context.restore();
     }
 
     renderEmployee(employee: IEmployee) {

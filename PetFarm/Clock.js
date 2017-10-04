@@ -11,6 +11,9 @@ var Clock = (function () {
         this.currentTime = 0;
         this.displayTime = false;
     }
+    Clock.prototype.getTick = function () {
+        return TimeMeasurement.tick;
+    };
     Clock.prototype.toggleDisplayCurrentTime = function (val) {
         this.displayTime = val;
     };
