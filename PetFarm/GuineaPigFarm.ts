@@ -22,7 +22,7 @@ class GuineaPigFarm extends GameObject {
 
     init() {
 
-       // this.actionManager.performDailyActions();
+        //this.actionManager.performDailyActions();
 
     }
    

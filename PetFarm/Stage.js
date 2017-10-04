@@ -27,31 +27,20 @@ var Stage = (function () {
                 this.guineaPigPens.push(go);
                 break;
         }
-        console.log(this.guineaPigGroups);
     };
     Stage.prototype.update = function () {
         this.moveGuineaPigs();
         this.moveGuineaPigGroups();
         this.clearStage();
         for (var i = 0; i < this.guineaPigs.length; i++) {
-            this.render(this.guineaPigs[i]);
+            this.renderGuineaPig(this.guineaPigs[i]);
         }
         for (var j = 0; j < this.guineaPigGroups.length; j++) {
-            this.render(undefined, this.guineaPigGroups[j]);
+            this.renderGuineaPigGroup(this.guineaPigGroups[j]);
         }
-        /* for (let k: number = 0; k < this.renderGuineaPigPen.length; k++) {
-            this.render(undefined, undefined, this.guineaPigPens[k]);
-        } */
-    };
-    //TODO: Ugly as hell. Params need to be refactored.
-    Stage.prototype.render = function (gp, gpg, pen) {
-        if (this.guineaPigs.length > 0) {
-            this.renderGuineaPig(gp);
+        for (var k = 0; k < this.guineaPigPens.length; k++) {
+            this.renderGuineaPigPen(this.guineaPigPens[k]);
         }
-        if (this.guineaPigGroups.length > 0) {
-            this.renderGuineaPigGroup(gpg);
-        }
-        //this.renderGuineaPigPen(pen);
     };
     Stage.prototype.moveGuineaPigs = function () {
         for (var i = 0; i < this.guineaPigs.length; i++) {
@@ -67,7 +56,6 @@ var Stage = (function () {
     };
     Stage.prototype.renderGuineaPig = function (gp) {
         this.context.save();
-        console.log(gp);
         switch (gp.getColor()) {
             case 0:
                 this.context.fillStyle = "brown";

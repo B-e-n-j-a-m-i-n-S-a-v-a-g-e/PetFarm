@@ -15,7 +15,7 @@ var GuineaPigFarm = (function (_super) {
         this.init();
     }
     GuineaPigFarm.prototype.init = function () {
-        // this.actionManager.performDailyActions();
+        //this.actionManager.performDailyActions();
     };
     return GuineaPigFarm;
 })(GameObject);

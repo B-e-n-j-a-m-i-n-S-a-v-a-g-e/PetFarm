@@ -28,7 +28,7 @@ window.onload = () => {
     let bigBoss = new Manager("BigBoss", 200000000);
 
 
-    let pen = new GuineaPigPen(10, 10, 400, 400, 10, "#fff");
+    let pen = new GuineaPigPen(25, 25, 450, 450, 10, "#fff");
 
     // By initializing the stage, a new game clock is set in motion
     let stage = new Stage(canvas, context, 500, 500);
@@ -40,9 +40,10 @@ window.onload = () => {
     fuzzy.setCurrentDirection(Direction.west);
     stinky.setCurrentDirection(Direction.east);
 
-    //stage.addChild(stinky);
-    //stage.addChild(fuzzy);
+    stage.addChild(stinky);
+    stage.addChild(fuzzy);
+    stage.addChild(pen);
 
-    stage.addChild(gpGrp);
+    //stage.addChild(gpGrp);
     stage.update();
 };

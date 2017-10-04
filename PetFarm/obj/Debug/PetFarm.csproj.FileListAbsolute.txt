@@ -7,6 +7,5 @@ c:\Users\Benjamin\Documents\Visual Studio 2015\Projects\Aug18Exercise\Aug18Exerc
 C:\Users\Benjamin\Documents\Visual Studio 2015\Projects\PetFarm\PetFarm\bin\PetFarm.dll.config
 C:\Users\Benjamin\Documents\Visual Studio 2015\Projects\PetFarm\PetFarm\bin\PetFarm.dll
 C:\Users\Benjamin\Documents\Visual Studio 2015\Projects\PetFarm\PetFarm\bin\PetFarm.pdb
-C:\Users\Benjamin\Documents\Visual Studio 2015\Projects\PetFarm\PetFarm\obj\Debug\PetFarm.csprojResolveAssemblyReference.cache
 C:\Users\Benjamin\Documents\Visual Studio 2015\Projects\PetFarm\PetFarm\obj\Debug\PetFarm.dll
 C:\Users\Benjamin\Documents\Visual Studio 2015\Projects\PetFarm\PetFarm\obj\Debug\PetFarm.pdb

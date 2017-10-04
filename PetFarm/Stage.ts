@@ -27,7 +27,6 @@
     }
 
     clearStage() {
-
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 
@@ -47,38 +46,25 @@
             this.guineaPigPens.push(go);
             break;
         }
-        console.log(this.guineaPigGroups);
     }
 
     update() {
+
 
         this.moveGuineaPigs();
         this.moveGuineaPigGroups();
         this.clearStage();
 
+        
         for (let i: number = 0; i < this.guineaPigs.length; i++) {
-            this.render(this.guineaPigs[i]);
+            this.renderGuineaPig(this.guineaPigs[i]);
         }
         for (let j: number = 0; j < this.guineaPigGroups.length; j++) {
-            this.render(undefined,this.guineaPigGroups[j]);
+            this.renderGuineaPigGroup(this.guineaPigGroups[j]);
         }
-        /* for (let k: number = 0; k < this.renderGuineaPigPen.length; k++) {
-            this.render(undefined, undefined, this.guineaPigPens[k]);
-        } */
-
-    }
-
-
-    //TODO: Ugly as hell. Params need to be refactored.
-    render(gp?: IGuineaPig, gpg?: GuineaPigGroup, pen?: GuineaPigPen) {
-
-        if (this.guineaPigs.length > 0) {
-            this.renderGuineaPig(gp);
-        }
-        if (this.guineaPigGroups.length > 0) {
-            this.renderGuineaPigGroup(gpg);
-        }
-        //this.renderGuineaPigPen(pen);
+        for (let k: number = 0; k < this.guineaPigPens.length; k++) {
+            this.renderGuineaPigPen(this.guineaPigPens[k]);
+        } 
     }
 
     moveGuineaPigs() {
@@ -100,7 +86,6 @@
     renderGuineaPig(gp: IGuineaPig) {
 
         this.context.save();
-        console.log(gp);
         switch (gp.getColor()) {
 
             case 0:
@@ -133,7 +118,6 @@
     }
 
     renderGuineaPigPen(gpp: GuineaPigPen) {
-
         this.context.strokeStyle = gpp.getColor();
         this.context.lineWidth = gpp.getThickness();
         this.context.strokeRect(gpp.getX(), gpp.getY(), gpp.getWidth(), gpp.getHeight());
